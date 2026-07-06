@@ -72,52 +72,6 @@
         </dl>
       </section>
 
-      <section class="section taste-section" aria-labelledby="taste-title">
-        <div class="cutaway-graphic" aria-label="Инфографика разреза шаурмы">
-          <img
-            src="assets/hero-shawarma.png"
-            alt="Шаурма в разрезе с мясом, овощами и соусом"
-          />
-          <div class="cut-glow" aria-hidden="true"></div>
-          <svg class="cut-lines" viewBox="0 0 100 100" aria-hidden="true">
-            <path class="line meat" d="M18 26 C32 26 40 37 50 45" />
-            <path class="line sauce" d="M82 28 C68 31 61 41 55 50" />
-            <path class="line veg" d="M15 73 C30 66 38 58 48 53" />
-            <path class="line lavash" d="M86 72 C73 67 64 60 57 55" />
-          </svg>
-          <div class="callout callout-meat">
-            <strong>Мясо</strong>
-            <span>горячая сочная начинка</span>
-          </div>
-          <div class="callout callout-sauce">
-            <strong>Соус</strong>
-            <span>можно поменьше или поострее</span>
-          </div>
-          <div class="callout callout-veg">
-            <strong>Овощи</strong>
-            <span>свежий хруст в каждом укусе</span>
-          </div>
-          <div class="callout callout-lavash">
-            <strong>Лаваш</strong>
-            <span>держит форму и поджаривается</span>
-          </div>
-        </div>
-        <div class="taste-copy">
-          <p class="eyebrow">Разрез шаурмы</p>
-          <h2 id="taste-title">Показываем вкус по слоям</h2>
-          <p>
-            Не просто фото еды, а понятная инфографика: гость сразу видит,
-            что внутри, и может отметить пожелания к своей шаурме перед добавлением.
-          </p>
-          <div class="taste-points" aria-label="Что внутри">
-            <span>Сочное мясо</span>
-            <span>Свежие овощи</span>
-            <span>Соус по вкусу</span>
-            <span>Хрустящий лаваш</span>
-          </div>
-        </div>
-      </section>
-
       <section id="menu" class="section menu-section" aria-labelledby="menu-title">
         <div class="section-heading">
           <p class="eyebrow">Мобильное меню</p>
@@ -398,8 +352,11 @@
             (item) => {
               const preferences = item.customizable
                 ? `
-                <div class="preference-panel">
-                  <span class="preference-title">Пожелания</span>
+                <details class="preference-panel">
+                  <summary class="preference-summary">
+                    <span>Пожелания</span>
+                    <small>лук, сыр, соус</small>
+                  </summary>
                   <div class="preference-list">
                     ${defaultPreferences
                       .map(
@@ -413,7 +370,7 @@
                       .join('')}
                   </div>
                   <input class="preference-comment" type="text" maxlength="90" placeholder="Комментарий: без помидоров, соуса побольше" />
-                </div>
+                </details>
               `
                 : '';
 
