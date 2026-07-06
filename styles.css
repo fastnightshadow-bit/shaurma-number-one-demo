@@ -489,17 +489,14 @@ body.mobile-chrome-hidden .topbar {
 }
 
 .preference-summary::after {
-  content: "+";
-  display: grid;
+  content: "";
   flex: 0 0 auto;
-  width: 22px;
-  height: 22px;
-  place-items: center;
-  border: 1px solid rgba(216, 32, 39, 0.55);
-  border-radius: 4px;
-  color: var(--brand-red);
-  font-size: 18px;
-  line-height: 1;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--brand-red);
+  border-bottom: 2px solid var(--brand-red);
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 180ms ease;
 }
 
 .preference-panel[open] .preference-summary {
@@ -508,23 +505,13 @@ body.mobile-chrome-hidden .topbar {
 }
 
 .preference-panel[open] .preference-summary::after {
-  content: "-";
+  transform: translateY(2px) rotate(225deg);
 }
 
 .preference-summary span {
   font-size: 12px;
   font-weight: 950;
   text-transform: uppercase;
-}
-
-.preference-summary small {
-  min-width: 0;
-  overflow: hidden;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 750;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .preference-list {
@@ -1121,10 +1108,6 @@ body.mobile-chrome-hidden .topbar {
 
   .preference-summary span {
     font-size: 11px;
-  }
-
-  .preference-summary small {
-    display: none;
   }
 
   .preference-list {
