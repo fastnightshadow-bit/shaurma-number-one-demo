@@ -300,6 +300,7 @@
       const clearCartButton = document.querySelector('#clear-cart');
       const copyOrderButton = document.querySelector('#copy-order');
       const stickySummary = document.querySelector('#sticky-summary');
+      const stickyOrder = document.querySelector('.sticky-order');
       const cartItems = new Map();
       let activeCategory = 'Шаурма';
       let cartPanelOpen = false;
@@ -432,6 +433,16 @@
         lastScrollY = currentScrollY;
       }
 
+      function highlightStickyCart() {
+        stickyOrder.classList.remove('is-attention');
+        window.requestAnimationFrame(() => {
+          stickyOrder.classList.add('is-attention');
+          window.setTimeout(() => {
+            stickyOrder.classList.remove('is-attention');
+          }, 650);
+        });
+      }
+
       function renderCart() {
         const items = [...cartItems.values()];
         const count = items.reduce((sum, item) => sum + item.quantity, 0);
@@ -491,8 +502,8 @@
           button.textContent = '+';
         }, 900);
 
-        openCart();
         renderCart();
+        highlightStickyCart();
       });
 
       categoryTabs.addEventListener('click', (event) => {

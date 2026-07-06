@@ -806,6 +806,13 @@ body.mobile-chrome-hidden .topbar {
   background: rgba(5, 5, 5, 0.92);
   box-shadow: var(--shadow);
   backdrop-filter: blur(16px);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.sticky-order.is-attention {
+  border-color: rgba(216, 32, 39, 0.78);
+  box-shadow: 0 18px 60px rgba(216, 32, 39, 0.24);
+  transform: translateY(-4px);
 }
 
 .sticky-order span {
