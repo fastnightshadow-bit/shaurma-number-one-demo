@@ -70,8 +70,8 @@
             <dd>242</dd>
           </div>
           <div>
-            <dt>Средний чек</dt>
-            <dd>200–350 ₽</dd>
+            <dt>Цены в меню</dt>
+            <dd>50–600 ₽</dd>
           </div>
           <div>
             <dt>Фото</dt>
@@ -128,6 +128,9 @@
               Позвонить и продиктовать
             </a>
             <div class="cart-actions">
+              <a class="cart-secondary cart-whatsapp is-disabled" id="whatsapp-order" href="#" target="_blank" rel="noreferrer">
+                Отправить в WhatsApp
+              </a>
               <button class="cart-secondary" id="copy-order" type="button">
                 Скопировать заказ
               </button>
@@ -154,6 +157,7 @@
         <div class="section-heading compact">
           <p class="eyebrow">Яндекс.Карты</p>
           <h2 id="reviews-title">Что отмечают гости</h2>
+          <p class="reviews-note">Короткий пересказ повторяющихся отзывов, не дословные цитаты.</p>
         </div>
         <div class="review-list" id="review-list"></div>
         <a
@@ -191,10 +195,18 @@
             >
           </div>
         </div>
-        <aside class="map-card" aria-label="Карточка адреса">
-          <span>Ярославль</span>
-          <strong>Shaurma Halal 1</strong>
-          <p>проспект Фрунзе, 46Б · 10:00–23:00 · средний чек 200–350 ₽</p>
+        <aside class="map-card" aria-label="Карта и адрес">
+          <iframe
+            class="map-frame"
+            title="Shaurma Halal 1 на Яндекс.Картах"
+            src="https://yandex.ru/map-widget/v1/?ll=39.902145%2C57.587201&mode=search&oid=53165453878&ol=biz&z=17"
+            loading="lazy"
+          ></iframe>
+          <div class="map-caption">
+            <span>Ярославль</span>
+            <strong>Shaurma Halal 1</strong>
+            <p>проспект Фрунзе, 46Б · 10:00–23:00 · цены меню 50–600 ₽</p>
+          </div>
         </aside>
       </section>
 
@@ -638,6 +650,7 @@
       const cartMobileToggle = document.querySelector('#cart-mobile-toggle');
       const clearCartButton = document.querySelector('#clear-cart');
       const copyOrderButton = document.querySelector('#copy-order');
+      const whatsappOrderButton = document.querySelector('#whatsapp-order');
       const stickySummary = document.querySelector('#sticky-summary');
       const stickyOrder = document.querySelector('.sticky-order');
       const cartItems = new Map();
@@ -855,6 +868,8 @@
           cartLines.innerHTML =
             '<p class="cart-empty">Пока пусто. Добавьте шаурму из меню.</p>';
           cartSubmit.classList.add('is-disabled');
+          whatsappOrderButton.classList.add('is-disabled');
+          whatsappOrderButton.href = '#';
           copyOrderButton.disabled = true;
           clearCartButton.disabled = true;
           stickySummary.textContent = 'Корзина пуста';
@@ -888,6 +903,8 @@
             )
             .join('');
           cartSubmit.classList.remove('is-disabled');
+          whatsappOrderButton.classList.remove('is-disabled');
+          whatsappOrderButton.href = `https://wa.me/${shopData.phone.replace('+', '')}?text=${encodeURIComponent(getCartSummary())}`;
           copyOrderButton.disabled = false;
           clearCartButton.disabled = false;
           stickySummary.textContent = `${count} поз. · ${formatPrice(total)}`;

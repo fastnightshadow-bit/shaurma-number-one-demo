@@ -51,10 +51,10 @@ p {
 }
 
 h1 {
-  max-width: 760px;
+  max-width: 700px;
   margin-bottom: 18px;
-  font-size: clamp(58px, 10vw, 128px);
-  line-height: 0.88;
+  font-size: clamp(48px, 7.4vw, 96px);
+  line-height: 0.94;
   letter-spacing: 0;
 }
 
@@ -196,21 +196,21 @@ body.mobile-chrome-hidden .topbar {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: saturate(0.96) contrast(1.08) brightness(0.66);
+  filter: saturate(0.98) contrast(1.04) brightness(0.86);
   animation: imageWake 1000ms ease-out both;
 }
 
 .hero-night {
   background:
-    radial-gradient(circle at 70% 18%, rgba(216, 32, 39, 0.18), transparent 31%),
-    linear-gradient(90deg, rgba(5, 5, 5, 0.98) 0%, rgba(5, 5, 5, 0.9) 45%, rgba(5, 5, 5, 0.52) 74%, rgba(5, 5, 5, 0.72) 100%),
-    linear-gradient(180deg, rgba(5, 5, 5, 0.52), rgba(5, 5, 5, 0.95));
+    radial-gradient(circle at 70% 18%, rgba(216, 32, 39, 0.12), transparent 31%),
+    linear-gradient(90deg, rgba(5, 5, 5, 0.82) 0%, rgba(5, 5, 5, 0.7) 43%, rgba(5, 5, 5, 0.28) 76%, rgba(5, 5, 5, 0.5) 100%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.34), rgba(5, 5, 5, 0.82));
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 780px;
+  max-width: 720px;
 }
 
 .sign-reveal {
@@ -781,7 +781,10 @@ body.mobile-chrome-hidden .topbar {
 
 .cart-secondary {
   flex: 1;
+  display: inline-flex;
   min-height: 42px;
+  align-items: center;
+  justify-content: center;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.08);
   color: white;
@@ -789,8 +792,19 @@ body.mobile-chrome-hidden .topbar {
   font-weight: 850;
 }
 
-.cart-secondary:disabled {
+.cart-secondary:disabled,
+.cart-secondary.is-disabled {
+  pointer-events: none;
   opacity: 0.4;
+}
+
+.cart-whatsapp {
+  border: 1px solid rgba(37, 211, 102, 0.42);
+  color: #d8ffe6;
+}
+
+.cart-whatsapp:not(.is-disabled):hover {
+  background: rgba(37, 211, 102, 0.14);
 }
 
 .cart-hint {
@@ -860,6 +874,11 @@ body.mobile-chrome-hidden .topbar {
   font-weight: 760;
 }
 
+.reviews-note {
+  max-width: 560px;
+  margin-top: -6px;
+}
+
 .reviews-link {
   display: inline-flex;
   min-height: 48px;
@@ -882,26 +901,47 @@ body.mobile-chrome-hidden .topbar {
 
 .map-card {
   min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 30px;
+  position: relative;
+  overflow: hidden;
   border-radius: 4px;
-  background:
-    radial-gradient(circle at 100% 0%, rgba(224, 31, 38, 0.24), transparent 30%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.06), transparent),
-    var(--panel);
+  background: #101010;
 }
 
-.map-card span {
+.map-frame {
+  width: 100%;
+  min-height: 360px;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.22) contrast(1.04) brightness(0.84);
+}
+
+.map-caption {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background: rgba(5, 5, 5, 0.86);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(14px);
+}
+
+.map-caption span {
   color: var(--brand-red);
   font-weight: 900;
 }
 
-.map-card strong {
+.map-caption strong {
+  display: block;
   margin: 10px 0;
   font-size: 34px;
   line-height: 1;
+}
+
+.map-caption p {
+  margin: 0;
 }
 
 .demo-ready {
@@ -1060,12 +1100,12 @@ body.mobile-chrome-hidden .topbar {
 
   .hero-night {
     background:
-      linear-gradient(180deg, rgba(5, 5, 5, 0.74), rgba(5, 5, 5, 0.44) 34%, rgba(5, 5, 5, 0.96) 100%),
-      linear-gradient(90deg, rgba(5, 5, 5, 0.92), rgba(5, 5, 5, 0.38));
+      linear-gradient(180deg, rgba(5, 5, 5, 0.56), rgba(5, 5, 5, 0.34) 34%, rgba(5, 5, 5, 0.88) 100%),
+      linear-gradient(90deg, rgba(5, 5, 5, 0.78), rgba(5, 5, 5, 0.25));
   }
 
   h1 {
-    font-size: clamp(54px, 17vw, 82px);
+    font-size: clamp(44px, 13vw, 68px);
   }
 
   h2 {
