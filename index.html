@@ -40,8 +40,8 @@
           <p class="sign-reveal">Ярославль · проспект Фрунзе, 46Б · 10:00–23:00</p>
           <h1 id="hero-title">Shaurma Halal 1 на Фрунзе</h1>
           <p class="hero-copy">
-            Халяльная шаурма, хот-доги и обеды навынос. Рейтинг 4,9 на Яндекс.Картах,
-            242 отзыва и меню для быстрого заказа по телефону.
+            Халяльная шаурма на Фрунзе: сытные порции, поджаренный лаваш
+            и заказ по телефону. Рейтинг 4,9 на Яндекс.Картах.
           </p>
           <div class="hero-actions" aria-label="Быстрые действия">
             <a class="button primary" href="#menu">Открыть меню</a>
@@ -86,10 +86,12 @@
 
       <section id="menu" class="section menu-section" aria-labelledby="menu-title">
         <div class="section-heading">
-          <p class="eyebrow">Меню доставки</p>
+          <p class="eyebrow">Меню для заказа</p>
           <h2 id="menu-title">Шаурма, люля и хот-доги</h2>
+          <p class="menu-photo-note">Фотографии блюд добавим после съемки у клиента</p>
           <div class="category-tabs" aria-label="Категории меню">
-            <button class="is-active" type="button" data-category="Шаурма">Шаурма</button>
+            <button class="is-active" type="button" data-category="Популярное">Популярное</button>
+            <button type="button" data-category="Шаурма">Шаурма</button>
             <button type="button" data-category="Люля">Люля</button>
             <button type="button" data-category="Хот-доги">Хот-доги</button>
             <button type="button" data-category="Добавки">Добавки</button>
@@ -195,12 +197,21 @@
           <p>проспект Фрунзе, 46Б · 10:00–23:00 · средний чек 200–350 ₽</p>
         </aside>
       </section>
+
+      <section class="section demo-ready" aria-label="Что нужно для запуска сайта">
+        <p class="eyebrow">Для презентации владельцу</p>
+        <h2>Готовая основа под официальный сайт</h2>
+        <p>
+          Для запуска официального сайта останется заменить фото, подтвердить меню
+          и подключить нужные ссылки.
+        </p>
+      </section>
     </main>
 
     <footer class="footer">
       <p>
         Демо-концепт для презентации услуги. Не является официальным сайтом
-        Shaurma Halal 1. Меню доставки и факты взяты из открытой карточки Яндекс.Карт.
+        Shaurma Halal 1. Меню и факты взяты из открытой карточки Яндекс.Карт.
         На месте блюда и цены могут отличаться.
       </p>
       <a href="#top">Наверх</a>
@@ -219,7 +230,7 @@
         orderFlow: [
           {
             title: 'Выберите еду',
-            text: 'Откройте меню доставки: шаурма, люля, хот-доги, добавки и напитки.',
+            text: 'Откройте меню для заказа: шаурма, люля, хот-доги, добавки и напитки.',
           },
           {
             title: 'Соберите список',
@@ -233,15 +244,15 @@
         reviews: [
           {
             rating: 'Яндекс',
-            text: 'Гости отмечают чистую кухню и поваров в перчатках.',
+            text: 'Лаваш хрустит, мясо сочное, порция большая.',
           },
           {
             rating: 'Яндекс',
-            text: 'Хвалят сочное мясо, свежие овощи и поджаренный лаваш.',
+            text: 'Чистая кухня, повара работают в перчатках.',
           },
           {
             rating: 'Яндекс',
-            text: 'Пишут про сытные порции, быстрый заказ и халяль.',
+            text: 'Быстро, горячо и удобно взять с собой.',
           },
         ],
         menuItems: [
@@ -268,6 +279,7 @@
             hasPhoto: false,
             image: '',
             customizable: true,
+            popular: true,
           },
           {
             name: 'Шаурма Большая',
@@ -280,6 +292,7 @@
             hasPhoto: false,
             image: '',
             customizable: true,
+            popular: true,
           },
           {
             name: 'Шаурма Классическая с картошкой фри',
@@ -328,6 +341,7 @@
             hasPhoto: false,
             image: '',
             customizable: true,
+            popular: true,
           },
           {
             name: 'Шаурма без мяса Мини',
@@ -412,6 +426,7 @@
             hasPhoto: false,
             image: '',
             customizable: true,
+            popular: true,
           },
           {
             name: 'Хот-дог Курица',
@@ -484,6 +499,7 @@
             hasPhoto: false,
             image: '',
             customizable: false,
+            popular: true,
           },
           {
             name: 'Мясо',
@@ -592,6 +608,7 @@
             hasPhoto: false,
             image: '',
             customizable: false,
+            popular: true,
           },
           {
             name: 'Чай Rich зелёный',
@@ -631,7 +648,7 @@
         'Поострее',
         'Разрезать пополам',
       ];
-      let activeCategory = 'Шаурма';
+      let activeCategory = 'Популярное';
       let cartPanelOpen = false;
       let lastScrollY = window.scrollY;
       let scrollTicking = false;
@@ -651,7 +668,11 @@
       function renderMenu() {
         const visibleItems = shopData.menuItems
           .map((item, index) => ({ ...item, originalIndex: index }))
-          .filter((item) => item.category === activeCategory);
+          .filter((item) =>
+            activeCategory === 'Популярное'
+              ? item.popular
+              : item.category === activeCategory
+          );
 
         if (visibleItems.length === 0) {
           menuGrid.innerHTML = `
@@ -695,7 +716,12 @@
                 ${
                   item.hasPhoto
                     ? `<img src="${item.image}" alt="${item.name}" />`
-                    : '<span class="dish-placeholder">Фото будет добавлено</span>'
+                    : `<span class="dish-placeholder" aria-label="Фото будет добавлено">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M8 7h8l1.2 2H20v9H4V9h2.8L8 7Z"></path>
+                          <circle cx="12" cy="13.5" r="3"></circle>
+                        </svg>
+                      </span>`
                 }
               </div>
               <div class="menu-card-body">
@@ -868,6 +894,10 @@
         }
 
         stickyOrder.classList.toggle('is-visible', count > 0);
+        stickyOrder.classList.toggle('is-empty', count === 0);
+        if (count === 0 && cartPanelOpen) {
+          closeCart();
+        }
         cartTotal.textContent = formatPrice(total);
       }
 
@@ -954,7 +984,10 @@
         }, 1200);
       });
 
-      cartMobileToggle.addEventListener('click', openCart);
+      cartMobileToggle.addEventListener('click', () => {
+        if (cartItems.size === 0) return;
+        openCart();
+      });
       cartClose.addEventListener('click', closeCart);
       cartBackdrop.addEventListener('click', closeCart);
       window.addEventListener(
