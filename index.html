@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SHAURMA №1 - заказать шаурму</title>
+    <title>Shaurma Halal 1 на Фрунзе - меню и заказ</title>
     <meta
       name="description"
-      content="Демо-сайт SHAURMA HALAL №1 в Ярославле: меню, мобильная мини-корзина, звонок для заказа и маршрут в 2ГИС."
+      content="Shaurma Halal 1 на проспекте Фрунзе, 46Б: халяльная шаурма, хот-доги, люля-кебаб, меню с мини-корзиной, звонок и маршрут."
     />
     <link rel="icon" type="image/png" href="assets/favicon-no1.png" />
     <link rel="stylesheet" href="styles.css" />
@@ -15,9 +15,9 @@
     <div class="bulb-line" aria-hidden="true"></div>
 
     <header class="topbar">
-      <a class="brand-mark" href="#top" aria-label="SHAURMA №1">
+      <a class="brand-mark" href="#top" aria-label="Shaurma Halal 1">
         <span class="brand-red">№1</span>
-        <span>SHAURMA HALAL</span>
+        <span>SHAURMA HALAL 1</span>
       </a>
       <nav aria-label="Основная навигация">
         <a href="#menu">Меню</a>
@@ -33,52 +33,66 @@
         <img
           class="hero-image"
           src="assets/shaurma-exterior.png"
-          alt="Точка SHAURMA HALAL №1 с красной вывеской и теплой подсветкой"
+          alt="Точка Shaurma Halal 1 на проспекте Фрунзе"
         />
         <div class="hero-night" aria-hidden="true"></div>
         <div class="hero-content">
-          <p class="sign-reveal">SHAURMA HALAL №1 · проспект Фрунзе, 46Б</p>
-          <h1 id="hero-title">SHAURMA №1</h1>
+          <p class="sign-reveal">Ярославль · проспект Фрунзе, 46Б · 10:00–23:00</p>
+          <h1 id="hero-title">Shaurma Halal 1 на Фрунзе</h1>
           <p class="hero-copy">
-            Мобильное меню для быстрого заказа: позиции, корзина, звонок и маршрут
-            в 2ГИС без лишних шагов.
+            Халяльная шаурма, хот-доги и обеды навынос. Рейтинг 4,9 на Яндекс.Картах,
+            242 отзыва и меню для быстрого заказа по телефону.
           </p>
           <div class="hero-actions" aria-label="Быстрые действия">
             <a class="button primary" href="#menu">Открыть меню</a>
             <a class="button secondary" href="tel:+79997994564">Позвонить</a>
             <a
               class="button ghost"
-              href="https://2gis.ru/yaroslavl/firm/70000001065174781"
+              href="https://yandex.ru/maps/org/shaurma_halal_1/53165453878/?ll=39.902145%2C57.587201&z=17"
               target="_blank"
               rel="noreferrer"
-              >Открыть 2ГИС</a
+              >Построить маршрут</a
             >
           </div>
         </div>
 
-        <dl class="gis-facts" aria-label="Факты из 2ГИС">
+        <dl class="gis-facts" aria-label="Факты из Яндекс.Карт">
           <div>
             <dt>Рейтинг</dt>
-            <dd>4.9</dd>
+            <dd>4,9</dd>
           </div>
           <div>
             <dt>Оценки</dt>
-            <dd>124</dd>
+            <dd>369</dd>
+          </div>
+          <div>
+            <dt>Отзывы</dt>
+            <dd>242</dd>
           </div>
           <div>
             <dt>Средний чек</dt>
-            <dd>250 ₽</dd>
+            <dd>200–350 ₽</dd>
+          </div>
+          <div>
+            <dt>Фото</dt>
+            <dd>25</dd>
+          </div>
+          <div>
+            <dt>Открыты</dt>
+            <dd>до 23:00</dd>
           </div>
         </dl>
       </section>
 
       <section id="menu" class="section menu-section" aria-labelledby="menu-title">
         <div class="section-heading">
-          <p class="eyebrow">Мобильное меню</p>
-          <h2 id="menu-title">Выберите позиции</h2>
+          <p class="eyebrow">Меню доставки</p>
+          <h2 id="menu-title">Шаурма, люля и хот-доги</h2>
           <div class="category-tabs" aria-label="Категории меню">
             <button class="is-active" type="button" data-category="Шаурма">Шаурма</button>
-            <button type="button" data-category="Фри">Фри</button>
+            <button type="button" data-category="Люля">Люля</button>
+            <button type="button" data-category="Хот-доги">Хот-доги</button>
+            <button type="button" data-category="Добавки">Добавки</button>
             <button type="button" data-category="Напитки">Напитки</button>
           </div>
         </div>
@@ -102,7 +116,7 @@
               </button>
             </div>
             <div class="cart-lines" id="cart-lines">
-              <p class="cart-empty">Пока пусто. Добавьте шаурму из меню.</p>
+              <p class="cart-empty">Пока пусто. Добавьте позицию из меню.</p>
             </div>
             <div class="cart-total">
               <span>Итого</span>
@@ -120,7 +134,7 @@
               </button>
             </div>
             <p class="cart-hint">
-              Оплаты на сайте нет: заказ собирается здесь, а подтверждается по телефону.
+              Оплаты на сайте нет: соберите список и продиктуйте заказ по телефону.
             </p>
           </aside>
         </div>
@@ -136,16 +150,16 @@
 
       <section id="reviews" class="section reviews" aria-labelledby="reviews-title">
         <div class="section-heading compact">
-          <p class="eyebrow">2ГИС</p>
-          <h2 id="reviews-title">Отзывы о SHAURMA №1</h2>
+          <p class="eyebrow">Яндекс.Карты</p>
+          <h2 id="reviews-title">Что отмечают гости</h2>
         </div>
         <div class="review-list" id="review-list"></div>
         <a
           class="reviews-link"
-          href="https://2gis.ru/yaroslavl/firm/70000001065174781/tab/reviews"
+          href="https://yandex.ru/maps/org/shaurma_halal_1/53165453878/reviews/"
           target="_blank"
           rel="noreferrer"
-          >Смотреть все отзывы в 2ГИС</a
+          >Смотреть 242 отзыва на Яндекс.Картах</a
         >
       </section>
 
@@ -154,24 +168,31 @@
           <p class="eyebrow">Где забрать</p>
           <h2 id="location-title">проспект Фрунзе, 46Б</h2>
           <p>
-            Ярославль, Фрунзенский район, 1 этаж. Откройте 2ГИС, постройте маршрут
-            или позвоните прямо с сайта.
+            Ежедневно с 10:00 до 23:00. Можно взять с собой, позвонить заранее
+            или построить маршрут через Яндекс.Карты.
           </p>
           <div class="location-actions">
             <a class="button primary" href="tel:+79997994564">Позвонить</a>
             <a
               class="button secondary"
+              href="https://yandex.ru/maps/org/shaurma_halal_1/53165453878/?ll=39.902145%2C57.587201&z=17"
+              target="_blank"
+              rel="noreferrer"
+              >Яндекс.Карты</a
+            >
+            <a
+              class="button ghost"
               href="https://2gis.ru/yaroslavl/firm/70000001065174781"
               target="_blank"
               rel="noreferrer"
-              >Открыть 2ГИС</a
+              >2ГИС</a
             >
           </div>
         </div>
         <aside class="map-card" aria-label="Карточка адреса">
           <span>Ярославль</span>
-          <strong>SHAURMA HALAL №1</strong>
-          <p>проспект Фрунзе, 46Б · чек 250 ₽ · кофе с собой</p>
+          <strong>Shaurma Halal 1</strong>
+          <p>проспект Фрунзе, 46Б · 10:00–23:00 · средний чек 200–350 ₽</p>
         </aside>
       </section>
     </main>
@@ -179,7 +200,8 @@
     <footer class="footer">
       <p>
         Демо-концепт для презентации услуги. Не является официальным сайтом
-        SHAURMA №1. Данные взяты из открытой карточки 2ГИС и предоставленных скриншотов.
+        Shaurma Halal 1. Меню доставки и факты взяты из открытой карточки Яндекс.Карт.
+        На месте блюда и цены могут отличаться.
       </p>
       <a href="#top">Наверх</a>
     </footer>
@@ -196,60 +218,39 @@
         phone: '+79997994564',
         orderFlow: [
           {
-            title: 'Выберите',
-            text: 'Откройте меню и добавьте позиции через компактную кнопку +.',
+            title: 'Выберите еду',
+            text: 'Откройте меню доставки: шаурма, люля, хот-доги, добавки и напитки.',
           },
           {
-            title: 'Проверьте',
-            text: 'Измените количество, уберите лишнее и посмотрите сумму.',
+            title: 'Соберите список',
+            text: 'Добавьте позиции в мини-корзину, отметьте пожелания и проверьте сумму.',
           },
           {
             title: 'Позвоните',
-            text: 'Нажмите кнопку и продиктуйте готовый список.',
+            text: 'Нажмите кнопку звонка и продиктуйте заказ для самовывоза.',
           },
         ],
         reviews: [
           {
-            rating: '5.0',
-            text: 'Сочная шаурма, заметная порция мяса и насыщенный вкус.',
+            rating: 'Яндекс',
+            text: 'Гости отмечают чистую кухню и поваров в перчатках.',
           },
           {
-            rating: '5.0',
-            text: 'Картофель фри хорошо заходит и отдельно, и внутри шаурмы.',
+            rating: 'Яндекс',
+            text: 'Хвалят сочное мясо, свежие овощи и поджаренный лаваш.',
           },
           {
-            rating: '4.9',
-            text: 'Удобно взять с собой: быстро, горячо, без лишнего ожидания.',
+            rating: 'Яндекс',
+            text: 'Пишут про сытные порции, быстрый заказ и халяль.',
           },
         ],
         menuItems: [
           {
-            name: 'Классическая шаурма',
-            description: 'Мясо, овощи, соус и лаваш.',
-            price: '250 ₽',
-            priceValue: 250,
-            badge: 'хит',
-            category: 'Шаурма',
-            hasPhoto: true,
-            image: 'assets/hero-shawarma.png',
-            customizable: true,
-          },
-          {
-            name: 'Большая шаурма',
-            description: 'Увеличенная порция для плотного обеда.',
-            price: '300 ₽',
-            priceValue: 300,
-            badge: 'сытно',
-            category: 'Шаурма',
-            hasPhoto: false,
-            image: '',
-            customizable: true,
-          },
-          {
-            name: 'Мини шаурма',
-            description: 'Быстрый перекус с собой.',
-            price: '200 ₽',
-            priceValue: 200,
+            name: 'Шаурма Мини',
+            description: 'Небольшая порция: мясо, овощи, соус и поджаренный лаваш.',
+            price: '370 ₽',
+            priceValue: 370,
+            weight: '300 г',
             badge: 'быстро',
             category: 'Шаурма',
             hasPhoto: false,
@@ -257,10 +258,35 @@
             customizable: true,
           },
           {
-            name: 'Шаурма с картошкой фри',
-            description: 'Классический вариант с картофелем внутри.',
-            price: '250 ₽',
-            priceValue: 250,
+            name: 'Шаурма Классическая',
+            description: 'Сочная шаурма на каждый день. Удобно взять с собой.',
+            price: '440 ₽',
+            priceValue: 440,
+            weight: '450 г',
+            badge: 'хит',
+            category: 'Шаурма',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Шаурма Большая',
+            description: 'Большая порция для плотного обеда.',
+            price: '510 ₽',
+            priceValue: 510,
+            weight: '600 г',
+            badge: 'сытно',
+            category: 'Шаурма',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Шаурма Классическая с картошкой фри',
+            description: 'Классика с картошкой фри внутри.',
+            price: '510 ₽',
+            priceValue: 510,
+            weight: '650 г',
             badge: 'фри внутри',
             category: 'Шаурма',
             hasPhoto: false,
@@ -268,10 +294,47 @@
             customizable: true,
           },
           {
-            name: 'Шаурма без мяса',
-            description: 'Овощной вариант из меню точки.',
-            price: '200 ₽',
-            priceValue: 200,
+            name: 'Шаурма Большая с картошкой фри',
+            description: 'Большая шаурма с картошкой фри. Очень сытная порция.',
+            price: '580 ₽',
+            priceValue: 580,
+            weight: '800 г',
+            badge: 'большая',
+            category: 'Шаурма',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Шаурма Мини с картошкой фри',
+            description: 'Мини-формат с картошкой фри внутри.',
+            price: '440 ₽',
+            priceValue: 440,
+            weight: '450 г',
+            badge: 'мини',
+            category: 'Шаурма',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Шаурма на тарелке',
+            description: 'Комплект для обеда: шаурма на тарелке, два соуса, лаваш и приборы.',
+            price: '600 ₽',
+            priceValue: 600,
+            weight: '850 г',
+            badge: 'обед',
+            category: 'Шаурма',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Шаурма без мяса Мини',
+            description: 'Овощной вариант без мяса.',
+            price: '220 ₽',
+            priceValue: 220,
+            weight: '220 г',
             badge: 'без мяса',
             category: 'Шаурма',
             hasPhoto: false,
@@ -279,12 +342,265 @@
             customizable: true,
           },
           {
-            name: 'Картофель фри',
-            description: 'Горячая добавка к заказу.',
+            name: 'Шаурма без мяса Классическая',
+            description: 'Классический овощной вариант без мяса.',
+            price: '290 ₽',
+            priceValue: 290,
+            weight: '310 г',
+            badge: 'без мяса',
+            category: 'Шаурма',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Шаурма без мяса Большая',
+            description: 'Большая овощная шаурма без мяса.',
+            price: '370 ₽',
+            priceValue: 370,
+            weight: '420 г',
+            badge: 'без мяса',
+            category: 'Шаурма',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Люля-кебаб в лаваше (Говядина)',
+            description: 'Люля-кебаб в лаваше. Можно взять с собой.',
+            price: '580 ₽',
+            priceValue: 580,
+            weight: '420 г',
+            badge: 'говядина',
+            category: 'Люля',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Люля-кебаб в лаваше (Курица)',
+            description: 'Куриный люля-кебаб в лаваше.',
+            price: '580 ₽',
+            priceValue: 580,
+            weight: '420 г',
+            badge: 'курица',
+            category: 'Люля',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Люля-кебаб в лаваше (Баранина)',
+            description: 'Люля-кебаб из баранины в лаваше.',
+            price: '580 ₽',
+            priceValue: 580,
+            weight: '420 г',
+            badge: 'баранина',
+            category: 'Люля',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Хот-дог Говядина',
+            description: 'Хот-дог с говядиной для быстрого перекуса.',
+            price: '290 ₽',
+            priceValue: 290,
+            weight: '180 г',
+            badge: 'говядина',
+            category: 'Хот-доги',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Хот-дог Курица',
+            description: 'Хот-дог с курицей.',
+            price: '290 ₽',
+            priceValue: 290,
+            weight: '180 г',
+            badge: 'курица',
+            category: 'Хот-доги',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Хот-дог Баранина',
+            description: 'Хот-дог с бараниной.',
+            price: '290 ₽',
+            priceValue: 290,
+            weight: '180 г',
+            badge: 'баранина',
+            category: 'Хот-доги',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Хот-дог в лаваше Говядина',
+            description: 'Хот-дог в лаваше с говядиной.',
+            price: '370 ₽',
+            priceValue: 370,
+            weight: '250 г',
+            badge: 'в лаваше',
+            category: 'Хот-доги',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Хот-дог в лаваше Курица',
+            description: 'Хот-дог в лаваше с курицей.',
+            price: '370 ₽',
+            priceValue: 370,
+            weight: '250 г',
+            badge: 'в лаваше',
+            category: 'Хот-доги',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Хот-дог в лаваше Баранина',
+            description: 'Хот-дог в лаваше с бараниной.',
+            price: '370 ₽',
+            priceValue: 370,
+            weight: '250 г',
+            badge: 'в лаваше',
+            category: 'Хот-доги',
+            hasPhoto: false,
+            image: '',
+            customizable: true,
+          },
+          {
+            name: 'Картошка фри',
+            description: 'Горячая картошка фри к заказу.',
+            price: '210 ₽',
+            priceValue: 210,
+            weight: '120 г',
+            badge: 'закуска',
+            category: 'Добавки',
+            hasPhoto: false,
+            image: '',
+            customizable: false,
+          },
+          {
+            name: 'Мясо',
+            description: 'Дополнительная порция мяса.',
+            price: '150 ₽',
+            priceValue: 150,
+            weight: '100 г',
+            badge: 'добавка',
+            category: 'Добавки',
+            hasPhoto: false,
+            image: '',
+            customizable: false,
+          },
+          {
+            name: 'Сыр',
+            description: 'Добавка к шаурме или хот-догу.',
             price: '100 ₽',
             priceValue: 100,
-            badge: 'добавить',
-            category: 'Фри',
+            weight: '50 г',
+            badge: 'добавка',
+            category: 'Добавки',
+            hasPhoto: false,
+            image: '',
+            customizable: false,
+          },
+          {
+            name: 'Соус фирменный',
+            description: 'Фирменный соус отдельно.',
+            price: '50 ₽',
+            priceValue: 50,
+            weight: '50 г',
+            badge: 'соус',
+            category: 'Добавки',
+            hasPhoto: false,
+            image: '',
+            customizable: false,
+          },
+          {
+            name: 'Соус острый',
+            description: 'Острый соус отдельно.',
+            price: '50 ₽',
+            priceValue: 50,
+            weight: '50 г',
+            badge: 'остро',
+            category: 'Добавки',
+            hasPhoto: false,
+            image: '',
+            customizable: false,
+          },
+          {
+            name: 'Маринованные огурцы',
+            description: 'Добавка к заказу.',
+            price: '70 ₽',
+            priceValue: 70,
+            weight: '50 г',
+            badge: 'добавка',
+            category: 'Добавки',
+            hasPhoto: false,
+            image: '',
+            customizable: false,
+          },
+          {
+            name: 'Халапеньо',
+            description: 'Острая добавка.',
+            price: '70 ₽',
+            priceValue: 70,
+            weight: '50 г',
+            badge: 'остро',
+            category: 'Добавки',
+            hasPhoto: false,
+            image: '',
+            customizable: false,
+          },
+          {
+            name: 'Кола Добрый',
+            description: 'Холодный напиток.',
+            price: '130 ₽',
+            priceValue: 130,
+            weight: '500 мл',
+            badge: 'напиток',
+            category: 'Напитки',
+            hasPhoto: false,
+            image: '',
+            customizable: false,
+          },
+          {
+            name: 'Кола Добрый 1 л',
+            description: 'Большая бутылка к заказу.',
+            price: '160 ₽',
+            priceValue: 160,
+            weight: '1 л',
+            badge: 'напиток',
+            category: 'Напитки',
+            hasPhoto: false,
+            image: '',
+            customizable: false,
+          },
+          {
+            name: 'Лимонад Аскания',
+            description: 'Холодный лимонад.',
+            price: '170 ₽',
+            priceValue: 170,
+            weight: '500 мл',
+            badge: 'лимонад',
+            category: 'Напитки',
+            hasPhoto: false,
+            image: '',
+            customizable: false,
+          },
+          {
+            name: 'Чай Rich зелёный',
+            description: 'Холодный зелёный чай.',
+            price: '150 ₽',
+            priceValue: 150,
+            weight: '500 мл',
+            badge: 'чай',
+            category: 'Напитки',
             hasPhoto: false,
             image: '',
             customizable: false,
@@ -379,7 +695,7 @@
                 ${
                   item.hasPhoto
                     ? `<img src="${item.image}" alt="${item.name}" />`
-                    : '<span class="dish-placeholder">Фото блюда</span>'
+                    : '<span class="dish-placeholder">Фото будет добавлено</span>'
                 }
               </div>
               <div class="menu-card-body">
@@ -388,6 +704,7 @@
                   <span>${item.badge}</span>
                 </div>
                 <p>${item.description}</p>
+                ${item.weight ? `<small class="menu-weight">${item.weight}</small>` : ''}
                 ${preferences}
                 <div class="menu-meta">
                   <strong>${item.price}</strong>
@@ -409,7 +726,7 @@
         .map(
           (review) => `
             <article class="review-card">
-              <span>${review.rating} · 2ГИС</span>
+              <span>${review.rating} · Яндекс.Карты</span>
               <p>${review.text}</p>
             </article>
           `
@@ -550,6 +867,7 @@
           stickySummary.textContent = `${count} поз. · ${formatPrice(total)}`;
         }
 
+        stickyOrder.classList.toggle('is-visible', count > 0);
         cartTotal.textContent = formatPrice(total);
       }
 

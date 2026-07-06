@@ -465,6 +465,19 @@ body.mobile-chrome-hidden .topbar {
   font-size: 14px;
 }
 
+.menu-weight {
+  display: inline-flex;
+  width: fit-content;
+  margin: -4px 0 12px;
+  padding: 4px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1;
+}
+
 .preference-panel {
   margin: 0 0 12px;
 }
@@ -1153,12 +1166,21 @@ body.mobile-chrome-hidden .topbar {
     border-bottom: 0;
     border-left: 0;
     padding: 18px 18px 104px;
+    opacity: 0;
     transform: translateY(104%);
-    transition: transform 220ms ease;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 180ms ease,
+      transform 220ms ease,
+      visibility 220ms ease;
   }
 
   .mini-cart.is-open {
+    opacity: 1;
     transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .cart-close {
@@ -1205,7 +1227,7 @@ body.mobile-chrome-hidden .topbar {
     margin-top: 18px;
   }
 
-  .sticky-order {
+  .sticky-order.is-visible {
     display: flex;
   }
 }
