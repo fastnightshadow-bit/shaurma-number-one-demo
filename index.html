@@ -72,6 +72,29 @@
         </dl>
       </section>
 
+      <section class="section taste-section" aria-labelledby="taste-title">
+        <div class="taste-photo">
+          <img
+            src="assets/hero-shawarma.png"
+            alt="Шаурма в разрезе с мясом, овощами и соусом"
+          />
+        </div>
+        <div class="taste-copy">
+          <p class="eyebrow">Внутри шаурмы</p>
+          <h2 id="taste-title">Сочно видно с первого взгляда</h2>
+          <p>
+            Большой аппетитный кадр помогает продавать вкус ещё до меню:
+            мясо, овощи, соус и горячий лаваш показываются крупно, без длинных описаний.
+          </p>
+          <div class="taste-points" aria-label="Что внутри">
+            <span>Сочное мясо</span>
+            <span>Свежие овощи</span>
+            <span>Соус по вкусу</span>
+            <span>Хрустящий лаваш</span>
+          </div>
+        </div>
+      </section>
+
       <section id="menu" class="section menu-section" aria-labelledby="menu-title">
         <div class="section-heading">
           <p class="eyebrow">Мобильное меню</p>
@@ -232,6 +255,7 @@
             category: 'Шаурма',
             hasPhoto: true,
             image: 'assets/hero-shawarma.png',
+            customizable: true,
           },
           {
             name: 'Большая шаурма',
@@ -242,6 +266,7 @@
             category: 'Шаурма',
             hasPhoto: false,
             image: '',
+            customizable: true,
           },
           {
             name: 'Мини шаурма',
@@ -252,6 +277,7 @@
             category: 'Шаурма',
             hasPhoto: false,
             image: '',
+            customizable: true,
           },
           {
             name: 'Шаурма с картошкой фри',
@@ -262,6 +288,7 @@
             category: 'Шаурма',
             hasPhoto: false,
             image: '',
+            customizable: true,
           },
           {
             name: 'Шаурма без мяса',
@@ -272,6 +299,7 @@
             category: 'Шаурма',
             hasPhoto: false,
             image: '',
+            customizable: true,
           },
           {
             name: 'Картофель фри',
@@ -282,6 +310,7 @@
             category: 'Фри',
             hasPhoto: false,
             image: '',
+            customizable: false,
           },
         ],
       };
@@ -302,6 +331,13 @@
       const stickySummary = document.querySelector('#sticky-summary');
       const stickyOrder = document.querySelector('.sticky-order');
       const cartItems = new Map();
+      const defaultPreferences = [
+        'Без лука',
+        'Без сыра',
+        'Соуса поменьше',
+        'Поострее',
+        'Разрезать пополам',
+      ];
       let activeCategory = 'Шаурма';
       let cartPanelOpen = false;
       let lastScrollY = window.scrollY;
@@ -336,7 +372,29 @@
 
         menuGrid.innerHTML = visibleItems
           .map(
-            (item) => `
+            (item) => {
+              const preferences = item.customizable
+                ? `
+                <div class="preference-panel">
+                  <span class="preference-title">Пожелания</span>
+                  <div class="preference-list">
+                    ${defaultPreferences
+                      .map(
+                        (preference) => `
+                        <label>
+                          <input type="checkbox" value="${preference}" />
+                          ${preference}
+                        </label>
+                      `
+                      )
+                      .join('')}
+                  </div>
+                  <input class="preference-comment" type="text" maxlength="90" placeholder="Комментарий: без помидоров, соуса побольше" />
+                </div>
+              `
+                : '';
+
+              return `
             <article class="menu-card" data-category="${item.category}">
               <div class="dish-thumb">
                 ${
@@ -351,6 +409,7 @@
                   <span>${item.badge}</span>
                 </div>
                 <p>${item.description}</p>
+                ${preferences}
                 <div class="menu-meta">
                   <strong>${item.price}</strong>
                   <button class="add-button" type="button" data-cart-button="${item.originalIndex}" aria-label="Добавить ${item.name}">
@@ -359,7 +418,8 @@
                 </div>
               </div>
             </article>
-          `
+          `;
+            }
           )
           .join('');
       }
@@ -381,6 +441,15 @@
         return `${value.toLocaleString('ru-RU')} ₽`;
       }
 
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#039;');
+      }
+
       function getCartSummary() {
         const items = [...cartItems.values()];
         const total = items.reduce(
@@ -393,7 +462,16 @@
         }
 
         const lines = items
-          .map((item) => `${item.name} × ${item.quantity}`)
+          .map((item) => {
+            const details = [
+              item.preferences.length ? `пожелания: ${item.preferences.join(', ')}` : '',
+              item.note ? `комментарий: ${item.note}` : '',
+            ]
+              .filter(Boolean)
+              .join('; ');
+
+            return `${item.name} × ${item.quantity}${details ? ` (${details})` : ''}`;
+          })
           .join(', ');
 
         return `Ваш заказ: ${lines}. Итого: ${formatPrice(total)}.`;
@@ -467,11 +545,21 @@
                     <span>${item.name}</span>
                     <strong>${item.price}</strong>
                   </div>
+                  ${
+                    item.preferences.length || item.note
+                      ? `<p class="cart-preferences">${[
+                          item.preferences.length ? item.preferences.map(escapeHtml).join(', ') : '',
+                          item.note ? escapeHtml(item.note) : '',
+                        ]
+                          .filter(Boolean)
+                          .join(' · ')}</p>`
+                      : ''
+                  }
                   <div class="cart-qty" aria-label="Количество ${item.name}">
-                    <button type="button" data-cart-action="decrease" data-cart-name="${item.name}">−</button>
+                    <button type="button" data-cart-action="decrease" data-cart-key="${encodeURIComponent(item.key)}">−</button>
                     <b>${item.quantity}</b>
-                    <button type="button" data-cart-action="increase" data-cart-name="${item.name}">+</button>
-                    <button class="cart-remove" type="button" data-cart-action="remove" data-cart-name="${item.name}" aria-label="Убрать ${item.name}">×</button>
+                    <button type="button" data-cart-action="increase" data-cart-key="${encodeURIComponent(item.key)}">+</button>
+                    <button class="cart-remove" type="button" data-cart-action="remove" data-cart-key="${encodeURIComponent(item.key)}" aria-label="Убрать ${item.name}">×</button>
                   </div>
                 </div>
               `
@@ -491,9 +579,18 @@
         if (!button) return;
 
         const item = shopData.menuItems[Number(button.dataset.cartButton)];
-        const existing = cartItems.get(item.name);
-        cartItems.set(item.name, {
+        const card = button.closest('.menu-card');
+        const preferences = [
+          ...card.querySelectorAll('.preference-list input:checked'),
+        ].map((input) => input.value);
+        const note = card.querySelector('.preference-comment')?.value.trim() || '';
+        const key = [item.name, preferences.join('|'), note].join('::');
+        const existing = cartItems.get(key);
+        cartItems.set(key, {
           ...item,
+          key,
+          preferences,
+          note,
           quantity: existing ? existing.quantity + 1 : 1,
         });
 
@@ -521,24 +618,24 @@
         const button = event.target.closest('[data-cart-action]');
         if (!button) return;
 
-        const itemName = button.dataset.cartName;
-        const item = cartItems.get(itemName);
+        const itemKey = decodeURIComponent(button.dataset.cartKey);
+        const item = cartItems.get(itemKey);
         if (!item) return;
 
         if (button.dataset.cartAction === 'increase') {
-          cartItems.set(itemName, { ...item, quantity: item.quantity + 1 });
+          cartItems.set(itemKey, { ...item, quantity: item.quantity + 1 });
         }
 
         if (button.dataset.cartAction === 'decrease') {
           if (item.quantity <= 1) {
-            cartItems.delete(itemName);
+            cartItems.delete(itemKey);
           } else {
-            cartItems.set(itemName, { ...item, quantity: item.quantity - 1 });
+            cartItems.set(itemKey, { ...item, quantity: item.quantity - 1 });
           }
         }
 
         if (button.dataset.cartAction === 'remove') {
-          cartItems.delete(itemName);
+          cartItems.delete(itemKey);
         }
 
         renderCart();
