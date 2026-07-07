@@ -157,7 +157,6 @@
         <div class="section-heading compact">
           <p class="eyebrow">Яндекс.Карты</p>
           <h2 id="reviews-title">Что отмечают гости</h2>
-          <p class="reviews-note">Короткий пересказ повторяющихся отзывов, не дословные цитаты.</p>
         </div>
         <div class="review-list" id="review-list"></div>
         <a
@@ -255,16 +254,16 @@
         ],
         reviews: [
           {
-            rating: 'Яндекс',
-            text: 'Лаваш хрустит, мясо сочное, порция большая.',
+            author: 'Лена И',
+            text: '«Кухня выглядит опрятно, повара работают в перчатках.»',
           },
           {
-            rating: 'Яндекс',
-            text: 'Чистая кухня, повара работают в перчатках.',
+            author: 'Елена Е.',
+            text: '«Порция сытная, хватает на полноценный обед.»',
           },
           {
-            rating: 'Яндекс',
-            text: 'Быстро, горячо и удобно взять с собой.',
+            author: 'Наталья Коречкова',
+            text: '«Замечательная шаурма: вкусная и сочная.»',
           },
         ],
         menuItems: [
@@ -654,13 +653,6 @@
       const stickySummary = document.querySelector('#sticky-summary');
       const stickyOrder = document.querySelector('.sticky-order');
       const cartItems = new Map();
-      const defaultPreferences = [
-        'Без лука',
-        'Без сыра',
-        'Соуса поменьше',
-        'Поострее',
-        'Разрезать пополам',
-      ];
       let activeCategory = 'Популярное';
       let cartPanelOpen = false;
       let lastScrollY = window.scrollY;
@@ -706,19 +698,7 @@
                   <summary class="preference-summary">
                     <span>Пожелания</span>
                   </summary>
-                  <div class="preference-list">
-                    ${defaultPreferences
-                      .map(
-                        (preference) => `
-                        <label>
-                          <input type="checkbox" value="${preference}" />
-                          ${preference}
-                        </label>
-                      `
-                      )
-                      .join('')}
-                  </div>
-                  <input class="preference-comment" type="text" maxlength="90" placeholder="Комментарий: без помидоров, соуса побольше" />
+                  <input class="preference-comment" type="text" maxlength="90" placeholder="Комментарий: без лука, соуса побольше" />
                 </details>
               `
                 : '';
@@ -765,7 +745,7 @@
         .map(
           (review) => `
             <article class="review-card">
-              <span>${review.rating} · Яндекс.Карты</span>
+              <span>${review.author} · Яндекс.Карты</span>
               <p>${review.text}</p>
             </article>
           `
