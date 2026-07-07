@@ -29,63 +29,81 @@
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="mobile-menu-shell">
-          <article class="place-card">
-            <div class="place-photo">
-              <img
-                src="assets/shaurma-exterior.png"
-                alt="Точка Shaurma Halal 1 на проспекте Фрунзе"
-              />
+      <section class="hero food-hero" aria-labelledby="hero-title">
+        <div class="mobile-menu-shell hero-grid">
+          <div class="hero-copy-block place-summary">
+            <span class="place-status">Открыто до 23:00</span>
+            <p class="eyebrow">Ярославль · проспект Фрунзе, 46Б</p>
+            <h1 id="hero-title">Shaurma Halal 1 на Фрунзе</h1>
+            <p class="hero-lead">Сочно. Быстро. Халяль.</p>
+            <p class="hero-copy">
+              Халяльная шаурма, люля и хот-доги навынос. Соберите заказ на сайте
+              и подтвердите по телефону.
+            </p>
+            <dl class="gis-facts" aria-label="Факты из Яндекс.Карт">
+              <div>
+                <dt>Рейтинг</dt>
+                <dd>Яндекс 4,9</dd>
+              </div>
+              <div>
+                <dt>Оценки</dt>
+                <dd>369</dd>
+              </div>
+              <div>
+                <dt>Отзывы</dt>
+                <dd>242</dd>
+              </div>
+              <div>
+                <dt>Меню</dt>
+                <dd>50–600 ₽</dd>
+              </div>
+            </dl>
+            <div class="quick-actions" aria-label="Быстрые действия">
+              <a class="button primary" href="#menu">Открыть меню</a>
+              <a class="button secondary" href="tel:+79997994564">Позвонить</a>
+              <a
+                class="button ghost"
+                href="https://yandex.ru/maps/org/shaurma_halal_1/53165453878/?ll=39.902145%2C57.587201&z=17"
+                target="_blank"
+                rel="noreferrer"
+                >Маршрут</a
+              >
             </div>
-            <div class="place-summary">
-              <span class="place-status">Открыто до 23:00</span>
-              <p class="eyebrow">Ярославль · проспект Фрунзе, 46Б</p>
-              <h1 id="hero-title">Shaurma Halal 1 на Фрунзе</h1>
-              <p class="hero-copy">
-                Халяльная шаурма, люля и хот-доги. Поджаренный лаваш, сытные
-                порции и заказ по телефону.
-              </p>
-              <dl class="gis-facts" aria-label="Факты из Яндекс.Карт">
-                <div>
-                  <dt>Рейтинг</dt>
-                  <dd>Яндекс 4,9</dd>
-                </div>
-                <div>
-                  <dt>Оценки</dt>
-                  <dd>369</dd>
-                </div>
-                <div>
-                  <dt>Отзывы</dt>
-                  <dd>242</dd>
-                </div>
-                <div>
-                  <dt>Меню</dt>
-                  <dd>50–600 ₽</dd>
-                </div>
-              </dl>
-              <div class="quick-actions" aria-label="Быстрые действия">
-                <a class="button primary" href="#menu">Открыть меню</a>
-                <a class="button secondary" href="tel:+79997994564">Позвонить</a>
-                <a
-                  class="button ghost"
-                  href="https://yandex.ru/maps/org/shaurma_halal_1/53165453878/?ll=39.902145%2C57.587201&z=17"
-                  target="_blank"
-                  rel="noreferrer"
-                  >Маршрут</a
-                >
+          </div>
+
+          <div class="hero-food" aria-label="Популярные позиции">
+            <figure class="hero-dish">
+              <img src="assets/menu-shaurma-classic-fries.jpg" alt="Шаурма классическая с картошкой фри" />
+              <figcaption>
+                <span>Популярное</span>
+                <strong>Классическая с картошкой фри</strong>
+                <b>510 ₽</b>
+              </figcaption>
+            </figure>
+            <div class="hero-mini-card">
+              <img src="assets/menu-shaurma-big.jpg" alt="Большая шаурма" />
+              <div>
+                <span>Большая шаурма</span>
+                <strong>510 ₽</strong>
               </div>
             </div>
-          </article>
+            <div class="hero-mini-card place-photo">
+              <img src="assets/shaurma-exterior.png" alt="Точка Shaurma Halal 1 на Фрунзе" />
+              <div>
+                <span>Адрес</span>
+                <strong>Фрунзе, 46Б</strong>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="menu" class="section menu-section" aria-labelledby="menu-title">
+      <section id="menu" class="section menu-section light-menu" aria-labelledby="menu-title">
         <div class="section-heading menu-heading">
           <p class="eyebrow">Меню</p>
           <h2 id="menu-title">Выберите еду</h2>
           <p class="menu-helper">
-            Популярное сначала. Добавьте позиции в корзину и позвоните для самовывоза.
+            Популярное сначала. Большие фото, понятные цены и корзина без оплаты на сайте.
           </p>
           <div class="category-tabs" aria-label="Категории меню">
             <button class="is-active" type="button" data-category="Популярное">Популярное</button>
