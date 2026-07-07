@@ -30,65 +30,63 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <img
-          class="hero-image"
-          src="assets/shaurma-exterior.png"
-          alt="Точка Shaurma Halal 1 на проспекте Фрунзе"
-        />
-        <div class="hero-night" aria-hidden="true"></div>
-        <div class="hero-content">
-          <p class="sign-reveal">Ярославль · проспект Фрунзе, 46Б · 10:00–23:00</p>
-          <h1 id="hero-title">Shaurma Halal 1 на Фрунзе</h1>
-          <p class="hero-copy">
-            Халяльная шаурма на Фрунзе: сытные порции, поджаренный лаваш
-            и заказ по телефону. Рейтинг 4,9 на Яндекс.Картах.
-          </p>
-          <div class="hero-actions" aria-label="Быстрые действия">
-            <a class="button primary" href="#menu">Открыть меню</a>
-            <a class="button secondary" href="tel:+79997994564">Позвонить</a>
-            <a
-              class="button ghost"
-              href="https://yandex.ru/maps/org/shaurma_halal_1/53165453878/?ll=39.902145%2C57.587201&z=17"
-              target="_blank"
-              rel="noreferrer"
-              >Построить маршрут</a
-            >
-          </div>
+        <div class="mobile-menu-shell">
+          <article class="place-card">
+            <div class="place-photo">
+              <img
+                src="assets/shaurma-exterior.png"
+                alt="Точка Shaurma Halal 1 на проспекте Фрунзе"
+              />
+            </div>
+            <div class="place-summary">
+              <span class="place-status">Открыто до 23:00</span>
+              <p class="eyebrow">Ярославль · проспект Фрунзе, 46Б</p>
+              <h1 id="hero-title">Shaurma Halal 1 на Фрунзе</h1>
+              <p class="hero-copy">
+                Халяльная шаурма, люля и хот-доги. Поджаренный лаваш, сытные
+                порции и заказ по телефону.
+              </p>
+              <dl class="gis-facts" aria-label="Факты из Яндекс.Карт">
+                <div>
+                  <dt>Рейтинг</dt>
+                  <dd>Яндекс 4,9</dd>
+                </div>
+                <div>
+                  <dt>Оценки</dt>
+                  <dd>369</dd>
+                </div>
+                <div>
+                  <dt>Отзывы</dt>
+                  <dd>242</dd>
+                </div>
+                <div>
+                  <dt>Меню</dt>
+                  <dd>50–600 ₽</dd>
+                </div>
+              </dl>
+              <div class="quick-actions" aria-label="Быстрые действия">
+                <a class="button primary" href="#menu">Открыть меню</a>
+                <a class="button secondary" href="tel:+79997994564">Позвонить</a>
+                <a
+                  class="button ghost"
+                  href="https://yandex.ru/maps/org/shaurma_halal_1/53165453878/?ll=39.902145%2C57.587201&z=17"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Маршрут</a
+                >
+              </div>
+            </div>
+          </article>
         </div>
-
-        <dl class="gis-facts" aria-label="Факты из Яндекс.Карт">
-          <div>
-            <dt>Рейтинг</dt>
-            <dd>4,9</dd>
-          </div>
-          <div>
-            <dt>Оценки</dt>
-            <dd>369</dd>
-          </div>
-          <div>
-            <dt>Отзывы</dt>
-            <dd>242</dd>
-          </div>
-          <div>
-            <dt>Цены в меню</dt>
-            <dd>50–600 ₽</dd>
-          </div>
-          <div>
-            <dt>Фото</dt>
-            <dd>25</dd>
-          </div>
-          <div>
-            <dt>Открыты</dt>
-            <dd>до 23:00</dd>
-          </div>
-        </dl>
       </section>
 
       <section id="menu" class="section menu-section" aria-labelledby="menu-title">
-        <div class="section-heading">
-          <p class="eyebrow">Меню для заказа</p>
-          <h2 id="menu-title">Шаурма, люля и хот-доги</h2>
-          <p class="menu-photo-note">Фотографии блюд добавим после съемки у клиента</p>
+        <div class="section-heading menu-heading">
+          <p class="eyebrow">Меню</p>
+          <h2 id="menu-title">Выберите еду</h2>
+          <p class="menu-helper">
+            Популярное сначала. Добавьте позиции в корзину и позвоните для самовывоза.
+          </p>
           <div class="category-tabs" aria-label="Категории меню">
             <button class="is-active" type="button" data-category="Популярное">Популярное</button>
             <button type="button" data-category="Шаурма">Шаурма</button>
